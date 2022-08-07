@@ -31,9 +31,9 @@ public class ServerFormController {
 
     }
 
-    public void initialize(){
+    public void initialize() {
 
-        new Thread(()->{
+        new Thread(() -> {
 
             try {
                 serverSocket = new ServerSocket(PORT);
@@ -43,6 +43,13 @@ public class ServerFormController {
                 dataOutputStream = new DataOutputStream(localSocket.getOutputStream());
 
                 bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+                String message = "";
+
+                while (!message.equals("exit")) {
+                    message = dataInputStream.readUTF();
+                    System.out.println("Client : " + message);
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
