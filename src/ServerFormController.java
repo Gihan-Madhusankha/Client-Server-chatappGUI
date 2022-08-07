@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -35,7 +36,7 @@ public class ServerFormController {
 
             try {
                 serverSocket = new ServerSocket(PORT);
-
+                Socket localSocket = serverSocket.accept();
 
             } catch (IOException e) {
                 e.printStackTrace();
