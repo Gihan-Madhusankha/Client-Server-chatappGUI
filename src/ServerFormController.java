@@ -55,8 +55,7 @@ public class ServerFormController {
                 e.printStackTrace();
             }
 
-        });
-
+        }).start();
 
     }
 
