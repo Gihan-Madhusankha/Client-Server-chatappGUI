@@ -39,7 +39,9 @@ public class ServerFormController {
 
             try {
                 serverSocket = new ServerSocket(PORT);
+                textArea.appendText("Server is running...\n");
                 Socket localSocket = serverSocket.accept();
+                textArea.appendText("Accepted the client\n\n");
 
                 dataInputStream = new DataInputStream(localSocket.getInputStream());
                 dataOutputStream = new DataOutputStream(localSocket.getOutputStream());
@@ -50,7 +52,7 @@ public class ServerFormController {
 
                 while (!message.equals("exit")) {
                     message = dataInputStream.readUTF();
-                    System.out.println("Client : " + message);
+                    textArea.appendText("Client : " + message);
                 }
 
             } catch (IOException e) {

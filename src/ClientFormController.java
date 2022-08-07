@@ -48,7 +48,7 @@ public class ClientFormController {
 
                 while (!message.equals("exit")) {
                     message = dataInputStream.readUTF();
-                    System.out.println("Server : " + message);
+                    textArea.appendText("Server : " + message);
                 }
 
             } catch (IOException e) {
