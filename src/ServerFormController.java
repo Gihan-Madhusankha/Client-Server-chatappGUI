@@ -3,10 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -21,6 +18,7 @@ public class ServerFormController {
     ServerSocket serverSocket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
+    BufferedReader bufferedReader;
 
     @FXML
     private TextArea textArea;
@@ -43,6 +41,8 @@ public class ServerFormController {
 
                 dataInputStream = new DataInputStream(localSocket.getInputStream());
                 dataOutputStream = new DataOutputStream(localSocket.getOutputStream());
+
+                bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
             } catch (IOException e) {
                 e.printStackTrace();
