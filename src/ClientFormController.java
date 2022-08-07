@@ -21,4 +21,13 @@ public class ClientFormController {
 
     }
 
+    public void initialize(){
+
+        new Thread(()->{
+
+
+
+        }).start();
+    }
+
 }
