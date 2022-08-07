@@ -15,6 +15,9 @@ import java.net.Socket;
 
 public class ServerFormController {
 
+    final int PORT = 8000;
+    ServerSocket serverSocket;
+
     @FXML
     private TextArea textArea;
 
@@ -23,6 +26,23 @@ public class ServerFormController {
 
     @FXML
     void btnSendOnAction(ActionEvent event) {
+
+    }
+
+    public void initialize(){
+
+        new Thread(()->{
+
+            try {
+                serverSocket = new ServerSocket(PORT);
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
 
     }
 
