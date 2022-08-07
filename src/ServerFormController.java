@@ -30,6 +30,7 @@ public class ServerFormController {
     void btnSendOnAction(ActionEvent event) throws IOException {
         String reply = textField.getText();
         dataOutputStream.writeUTF(reply);
+        textArea.appendText("You : " + reply + "\n");
         dataOutputStream.flush();
     }
 
@@ -38,6 +39,8 @@ public class ServerFormController {
         new Thread(() -> {
 
             try {
+                textArea.setEditable(false);
+
                 serverSocket = new ServerSocket(PORT);
                 textArea.appendText("Server is running...\n");
                 Socket localSocket = serverSocket.accept();
@@ -52,7 +55,7 @@ public class ServerFormController {
 
                 while (!message.equals("exit")) {
                     message = dataInputStream.readUTF();
-                    textArea.appendText("Client : " + message);
+                    textArea.appendText("Client : " + message + "\n");
                 }
 
             } catch (IOException e) {
