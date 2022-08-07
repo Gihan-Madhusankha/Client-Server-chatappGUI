@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  * @author : Gihan Madhusankha
@@ -12,6 +13,7 @@ public class ServerApp {
         final int PORT = 8000;
         try {
             ServerSocket serverSocket = new ServerSocket(PORT);
+            Socket localSocket = serverSocket.accept();
 
         } catch (IOException e) {
             e.printStackTrace();
