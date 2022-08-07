@@ -26,8 +26,10 @@ public class ClientFormController {
     private TextField textField;
 
     @FXML
-    void btnSendOnAction(ActionEvent event) {
-
+    void btnSendOnAction(ActionEvent event) throws IOException {
+        String reply = textField.getText();
+        dataOutputStream.writeUTF(reply);
+        dataOutputStream.flush();
     }
 
     public void initialize() {
