@@ -28,7 +28,7 @@ public class ServerFormController {
 
     @FXML
     void btnSendOnAction(ActionEvent event) throws IOException {
-        String reply = "";
+        String reply = textField.getText();
         dataOutputStream.writeUTF(reply);
         dataOutputStream.flush();
     }
