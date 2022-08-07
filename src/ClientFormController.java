@@ -42,6 +42,13 @@ public class ClientFormController {
 
                 bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
+                String message = "";
+
+                while (!message.equals("exit")) {
+                    message = dataInputStream.readUTF();
+                    System.out.println("Server : " + message);
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
